@@ -8,6 +8,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const showCreateAccountLink = false;
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -116,12 +117,14 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="text-center text-text-secondary text-sm mt-8">
-            Don&apos;t have an account?{' '}
-            <Link to="/register" className="text-accent hover:text-accent-hover font-medium transition-colors">
-              Create one
-            </Link>
-          </p>
+          {showCreateAccountLink && (
+            <p className="text-center text-text-secondary text-sm mt-8">
+              Don&apos;t have an account?{' '}
+              <Link to="/register" className="text-accent hover:text-accent-hover font-medium transition-colors">
+                Create one
+              </Link>
+            </p>
+          )}
         </div>
       </div>
     </div>
