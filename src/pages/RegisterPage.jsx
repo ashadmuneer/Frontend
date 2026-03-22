@@ -135,7 +135,7 @@ export default function RegisterPage() {
 
           <p className="text-center text-text-secondary text-sm mt-8">
             Already have an account?{' '}
-            <Link to="/login" className="text-accent hover:text-accent-hover font-medium transition-colors">
+            <Link to="/qws/login" className="text-accent hover:text-accent-hover font-medium transition-colors">
               Sign in
             </Link>
           </p>

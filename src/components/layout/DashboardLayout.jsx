@@ -14,7 +14,7 @@ export default function DashboardLayout() {
   }
 
   if (!admin) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/qws/login" replace />;
   }
 
   return (

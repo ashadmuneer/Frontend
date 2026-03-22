@@ -37,7 +37,12 @@ const defaultFooterLinkGroups = [
 
 export default function Footer({ settings, footerLinkGroups: dynamicGroups }) {
   const brandDescription = settings?.brandDescription || 'Luxury human hair wigs, crafted for women who demand the best.';
-  const copyright = settings?.copyright || '© 2026 Divas Lace Wigs. All rights reserved. | Proudly Powered by Quntum Web Solutions';
+  const copyright = settings?.copyright || '© 2026 Divas Lace Wigs. All rights reserved.';
+  const qwsUrl = 'https://qwstechnologies.com/';
+  const cleanedCopyright = copyright
+    .replace(/\|?\s*proudly powered by.*$/i, '')
+    .replace(/\|\s*$/, '')
+    .trim();
   const social = settings?.socialLinks || {};
   const linkGroups = dynamicGroups?.length > 0 ? dynamicGroups : defaultFooterLinkGroups;
 
@@ -142,10 +147,32 @@ export default function Footer({ settings, footerLinkGroups: dynamicGroups }) {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-          <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            {copyright}
-          </p>
+        <div className="pt-8" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+          <div
+            className="text-xs sm:text-sm text-center leading-relaxed flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-1 sm:gap-2"
+            style={{ color: 'rgba(255,255,255,0.6)' }}
+          >
+            {cleanedCopyright && <span>{cleanedCopyright}</span>}
+            {cleanedCopyright && (
+              <span className="hidden sm:inline" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                |
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1 sm:gap-1.5">
+              <span>Proudly Powered by</span>
+              <a
+                href={qwsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline whitespace-nowrap"
+                style={{ color: 'var(--color-home-primary)' }}
+              >
+                <span className="font-medium" style={{ color: 'var(--color-home-primary)' }}>
+                  Quantum Web Solutions
+                </span>
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </footer>

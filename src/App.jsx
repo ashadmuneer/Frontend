@@ -54,7 +54,8 @@ function App() {
         <Route path="/shipping" element={<ShippingPage />} />
         <Route path="/custom-hair" element={<CustomHairPage />} />
         <Route path="/custom-hair/:slug" element={<CustomHairDetailPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/qws/login" element={<LoginPage />} />
+        <Route path="/login" element={<Navigate to="/qws/login" replace />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
